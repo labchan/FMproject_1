@@ -1,5 +1,6 @@
 package com.example.fmproject_1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,12 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class  create extends AppCompatActivity {
 
     //TextView createOrder;
-    EditText location, building, contact, tel, description;
-    Button btnHome;
+    FMOrderdb Mydb;
+    EditText etlocation, etbuilding, etcontact, ettel, etdescription;
+    Button btnHome,btnCreate,btnPhoto;
 
 
     @Override
@@ -20,13 +23,43 @@ public class  create extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
 
-        location=(EditText)findViewById(R.id.location);
-        building=(EditText)findViewById(R.id.building);
-        contact=(EditText)findViewById(R.id.contact);
-        tel=(EditText)findViewById(R.id.tel);
-        description=(EditText)findViewById(R.id.description);
-        btnHome=(Button)findViewById(R.id.btnHome);
+        Mydb =new FMOrderdb(this);
 
+        etlocation=(EditText)findViewById(R.id.location);
+        etbuilding=(EditText)findViewById(R.id.building);
+        etcontact=(EditText)findViewById(R.id.contact);
+        ettel=(EditText)findViewById(R.id.tel);
+        etdescription=(EditText)findViewById(R.id.description);
+        btnHome=(Button)findViewById(R.id.btnHome);
+        btnCreate=(Button)findViewById(R.id.btnCreate);
+        btnPhoto=(Button)findViewById(R.id.btnPhoto);
+        AddOrder();
+        ReturnHome();
+
+
+    }
+
+    // addOrder method
+    public void AddOrder(){
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    boolean isInserted= Mydb.insertData(etlocation.getText().toString(),
+                            etbuilding.getText().toString(),
+                            etcontact.getText().toString(),
+                            ettel.getText().toString(),
+                            etdescription.getText().toString() ) ;
+                    if (isInserted =true) {
+                        Toast.makeText(create.this, "order created", Toast.LENGTH_LONG).show();
+                    } else
+                        Toast.makeText(create.this, "order failure created", Toast.LENGTH_LONG).show();
+                }
+            });
+    }
+
+    // return to home page
+    public void ReturnHome(){
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,4 +68,5 @@ public class  create extends AppCompatActivity {
             }
         });
     }
+
 }
