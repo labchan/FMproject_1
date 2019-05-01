@@ -2,6 +2,7 @@ package com.example.fmproject_1;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -63,6 +64,12 @@ public class FMOrderdb extends SQLiteOpenHelper {
             return true;
     }
     // list & display data method
+    public Cursor getAllData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("select * from " +Table_Name, null);
+        return res;
+
+    }
 
     // update data method
     // delete data method
