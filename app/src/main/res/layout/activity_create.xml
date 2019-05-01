@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/OrderForm"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#000"
+    android:gravity="center|right"
     android:orientation="vertical"
-    android:stretchColumns="1">
-
+    android:stretchColumns="*"
+    tools:visibility="visible">
 
 
     <TableRow>
 
         <TextView
             android:layout_height="wrap_content"
+            android:layout_width="5dp"
             android:layout_column="0"
             android:layout_marginLeft="10dp"
             android:text="Location"
@@ -21,13 +25,16 @@
 
         <EditText
             android:id="@+id/location"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_marginLeft="10dp"
             android:background="#fff"
             android:hint="input the location"
             android:padding="5dp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:layout_span="2"
+            />
     </TableRow>
 
     <TableRow>
@@ -50,7 +57,8 @@
             android:background="#fff"
             android:hint="input the building "
             android:padding="5dp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:layout_span="2"/>
     </TableRow>
 
     <TableRow>
@@ -73,7 +81,8 @@
             android:background="#fff"
             android:hint="input the contact "
             android:padding="5dp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:layout_span="2"/>
     </TableRow>
 
     <TableRow>
@@ -96,10 +105,12 @@
             android:background="#fff"
             android:hint="input the telephone"
             android:padding="5dp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:layout_span="2"/>
     </TableRow>
 
     <TableRow>
+
         <TextView
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -118,22 +129,52 @@
             android:background="#fff"
             android:hint="input the defects"
             android:padding="5dp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:layout_span="2"/>
     </TableRow>
 
 
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="250dp">
 
-    <TableRow android:layout_marginTop="150dp">
 
         <Button
             android:id="@+id/btnHome"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_span="2"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+
             android:background="#0ff"
             android:text="Home"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+             />
+
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="152dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#0ff"
+            android:text="Add Order"
+            android:textColor="#000"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnPhoto"
+            android:layout_width="152dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|left"
+
+            android:background="#0ff"
+
+            android:text="Take Photo"
+            android:textColor="#000"
+            android:textSize="10sp"
             android:textStyle="bold" />
     </TableRow>
 </TableLayout>
