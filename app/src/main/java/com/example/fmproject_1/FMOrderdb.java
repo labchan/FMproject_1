@@ -64,10 +64,19 @@ public class FMOrderdb extends SQLiteOpenHelper {
             return true;
     }
     // list & display data method
-    public Cursor getAllData(){
+    /*public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res=db.rawQuery("select * from " +Table_Name, null);
         return res;
+
+    } */
+
+    // create mehtod to view data
+    public Cursor viewData(){
+        SQLiteDatabase db =this.getReadableDatabase();
+        String query = "select *from " +Table_Name;
+        Cursor cursor=db.rawQuery(query, null);
+        return cursor;
 
     }
 

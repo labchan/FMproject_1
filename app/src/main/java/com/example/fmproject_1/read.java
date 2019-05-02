@@ -6,8 +6,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.ArrayList;
 
 public class read extends AppCompatActivity {
 
@@ -15,6 +18,8 @@ public class read extends AppCompatActivity {
     EditText Esearch;
     Button btnHome, btnSearch;
 
+    ArrayList<String> listItem;
+    ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +27,19 @@ public class read extends AppCompatActivity {
         setContentView(R.layout.activity_read);
 
         Mydb = new FMOrderdb(this);
+
+        // create ArrayList object
+        listItem=new ArrayList<>();
+
         Esearch = (EditText) findViewById(R.id.search);
         btnHome = (Button) findViewById(R.id.btnHome);
         btnSearch = (Button) findViewById(R.id.btnSearch);
-        ListOrder();
+        //ListOrder();
         ReturnHome();
+        viewData();
 
     }
-        public void ListOrder(){
+      /*  public void ListOrder(){
             btnSearch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -55,15 +65,20 @@ public class read extends AppCompatActivity {
                     showMessage("data", buffer.toString());
                 }
             });
-        }
+        } */
 
+      /*
         public void showMessage (String title, String message) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setCancelable(true);
                 builder.setTitle(title);
                 builder.setMessage(message);
                 builder.show();
-    }
+    } */
+
+      private void viewData(){
+            
+      }
 
         public void ReturnHome(){
             btnHome.setOnClickListener(new View.OnClickListener() {
