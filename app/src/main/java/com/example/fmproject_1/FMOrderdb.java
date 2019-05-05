@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.fmproject_1.Model.workOrder;
+
+import java.util.ArrayList;
+
 public class FMOrderdb extends SQLiteOpenHelper {
 
     public static final String Database_Name="FMdb";// database name
@@ -72,11 +76,34 @@ public class FMOrderdb extends SQLiteOpenHelper {
     } */
 
     // create mehtod to view data
-    public Cursor viewData(){
+   /* public Cursor viewData()
+    {
         SQLiteDatabase db =this.getReadableDatabase();
         String query = "select *from " +Table_Name;
         Cursor cursor=db.rawQuery(query, null);
         return cursor;
+
+    } */
+
+    public ArrayList<workOrder> getAllData()
+    {
+        ArrayList<workOrder> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "select *from " + Table_Name;
+        Cursor cursor = db.rawQuery(query, null);
+
+        while (cursor.moveToNext())
+        {
+            int id=cursor.getInt(0);
+            String location=cursor.getString(1);
+            String building=cursor.getString(2);
+            String descritpion=cursor.getString(5);
+
+            workOrder workorder =new workOrder(id, location, building, null,null, descritpion);
+
+            arrayList.add(workorder);
+        }
+            return arrayList;
 
     }
 
