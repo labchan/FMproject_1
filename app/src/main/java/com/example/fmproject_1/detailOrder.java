@@ -23,7 +23,7 @@ public class detailOrder extends AppCompatActivity {
         String eid = extras.getString("value");
         Toast.makeText(getApplicationContext(), "order no.:"+eid,Toast.LENGTH_LONG).show();
 
-       int i = Integer.parseInt(eid);
+      /* int i = Integer.parseInt(eid);
        Mydb = new FMOrderdb(this);
        order =Mydb.getorder(i);
 
@@ -40,6 +40,7 @@ public class detailOrder extends AppCompatActivity {
       // Toast.makeText(getApplicationContext(), "buidling" + building, Toast.LENGTH_LONG).show();
 
         // see youtube android Studio tutorial-35- using where clause with Sqlitedatabase
-
+       */
     }
 }
+
