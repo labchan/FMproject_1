@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".delete"></activity>
+        <activity android:name=".detailOrder"></activity>
+        <activity android:name=".delete" />
         <activity android:name=".update" />
         <activity android:name=".read" />
         <activity android:name=".create" />

@@ -107,7 +107,53 @@ public class FMOrderdb extends SQLiteOpenHelper {
 
     }
 
+    // get specific workorder data
+    public workOrder getorder(int id) {
+
+        workOrder workorder = new workOrder();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // specify the columns to be fetched
+        String[] columns = {eid, elocation, ebuilding, econtact, etel, edesc};
+
+        // select condition
+        String selection = eid + "=?";
+
+        // Arguments for selection
+        String[] selectionArgs = {String.valueOf(eid)};
+
+        //Cursor res = db.rawQuery(queryorder, null);
+        Cursor res = db.query(Table_Name, columns, selection, selectionArgs, null, null, null);
+
+        if (null != res) {
+            res.moveToFirst();
+            workorder.setId((Integer.parseInt(res.getString(0))));
+            workorder.setLocation(res.getString(1));
+            workorder.setBuilding(res.getString(2));
+            workorder.setContact(res.getString(3));
+            workorder.setTel(res.getString(4));
+            workorder.setDescription(res.getString(5));
+
+        }
+
+        db.close();
+        return workorder;
+
+    }
+
     // update data method
+    public boolean updateOrder(String id, String location, String building, String contact, String tel, String description){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(eid,id);
+        contentValues.put(elocation,location);
+        contentValues.put(ebuilding,building);
+        contentValues.put(econtact,contact);
+        contentValues.put(etel,tel);
+        contentValues.put(edesc,description);
+        db.update(Table_Name, contentValues, "ID = ?",new String[] { id });
+        return true;
+    }
     // delete data method
 
 }
