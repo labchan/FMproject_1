@@ -1,25 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".detailOrder">
 
+    <TableRow android:background="#0079D6" android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="REPAIR ORDER"
+            android:gravity="center"
+            android:textStyle="bold|italic"/>
+    </TableRow>
 
-    <TextView
-        android:id="@+id/elocation"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+    <TableRow  android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="order no."
+            android:textStyle="bold|italic"/>
 
-        android:text="TextView" />
+        <EditText
+            android:id="@+id/e_id"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:textSize="15dp"
+            android:text=""/> />
+    </TableRow>
 
-    <TextView
-        android:id="@+id/ebuilding"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
 
-        android:text="TextView" />
 
-</LinearLayout>
+
+    <TableRow  android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="Location."
+            android:textStyle="bold|italic"/>
+
+        <EditText
+            android:id="@+id/e_location"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:textSize="15dp"
+            android:text=""/> />
+    </TableRow>
+
+    <TableRow  android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="Building."
+            android:textStyle="bold|italic"/>
+
+        <EditText
+            android:id="@+id/e_building"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:textSize="15dp"
+            android:text=""/>
+    </TableRow>
+
+    <TableRow  android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="Contact"
+            android:textStyle="bold|italic"/>
+
+        <EditText
+            android:id="@+id/e_contact"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:textSize="15dp"
+            android:text=""/> />
+    </TableRow>
+
+    <TableRow  android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="Tel."
+            android:textStyle="bold|italic"/>
+
+        <EditText
+            android:id="@+id/e_tel"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:textSize="15dp"
+            android:text=""/>
+    </TableRow>
+
+    <TableRow  android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="Description"
+            android:textStyle="bold|italic"/>
+
+        <EditText
+            android:id="@+id/e_description"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:textSize="15dp"
+            android:text=""/>
+    </TableRow>
+
+    <TableRow  android:padding="5dp">
+
+
+
+    </TableRow>
+
+    <TableRow  android:background="#0079D6" android:padding="5dp">
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="Update"
+            android:textStyle="bold|italic"/>
+        <Button
+            android:id="@+id/btn_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="Delete"
+            android:textStyle="bold|italic"/>
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:text="Home"
+            android:textStyle="bold|italic"/>
+
+
+    </TableRow>
+
+
+
+</TableLayout>

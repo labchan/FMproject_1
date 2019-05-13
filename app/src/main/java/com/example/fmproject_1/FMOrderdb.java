@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class FMOrderdb extends SQLiteOpenHelper {
 
-    public static final String Database_Name="FMdb";// database name
+    public static final String Database_Name="FMdb";// database name root , !Home123
     public static final String Table_Name="RMorder"; // table name
     public static final int Database_Version= 1;
     public static final String eid="id";
@@ -97,9 +97,11 @@ public class FMOrderdb extends SQLiteOpenHelper {
             int id=cursor.getInt(0);
             String location=cursor.getString(1);
             String building=cursor.getString(2);
+            String contact=cursor.getString(3);
+            String tel=cursor.getString(4);
             String descritpion=cursor.getString(5);
 
-            workOrder workorder =new workOrder(id, location, building, null,null, descritpion);
+            workOrder workorder =new workOrder(id, location, building, contact, tel, descritpion);
 
             arrayList.add(workorder);
         }

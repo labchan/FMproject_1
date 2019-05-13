@@ -63,16 +63,25 @@ public class read extends AppCompatActivity
                 String eid=String.valueOf(order.getId());
                 String location=order.getLocation();
                 String building=order.getBuilding();
+                String contact=order.getContact();
+                String tel=order.getTel();
                 String description=order.getDescription();
 
                 Toast.makeText(getApplicationContext(), "order no.:"+eid  +
                         "\n location:" +location+
                         "\n building:"+building+
+                                "\n contact:"+contact+
+                                "\n tel:"+tel+
                         "\n description:"+description,
                         Toast.LENGTH_LONG).show();
 
                Intent intent=new Intent(getApplicationContext(), detailOrder.class);
                intent.putExtra("value",eid);
+               intent.putExtra("location",location);
+                intent.putExtra("building",building);
+                intent.putExtra("contact",contact);
+                intent.putExtra("tel",tel);
+                intent.putExtra("description",description);
                startActivity(intent);
 
 
