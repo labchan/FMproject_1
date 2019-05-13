@@ -141,5 +141,10 @@ public class FMOrderdb extends SQLiteOpenHelper {
     }
 
     // delete data method
+    public boolean removeOrder(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(Table_Name, "ID= ?",new String[] {id} );
+        return true;
+    }
 
 }

@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.example.fmproject_1.Model.workOrder;
 
+import static com.example.fmproject_1.FMOrderdb.eid;
+
 public class detailOrder extends AppCompatActivity {
 
     FMOrderdb Mydb;
@@ -87,13 +89,24 @@ public class detailOrder extends AppCompatActivity {
         });
     }
     // call and run update method for update repair record
-    public void OrderDel()
+   public void OrderDel()
     {
-        btDel.setOnClickListener(new View.OnClickListener() {
+        btDel.setOnClickListener(new View.OnClickListener()
+        {
+
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Delete", Toast.LENGTH_SHORT).show();
-            }
+               // Toast.makeText(getApplicationContext(), "Delete", Toast.LENGTH_SHORT).show();
+
+                boolean isDeleted=Mydb.removeOrder(eId.getText().toString());
+
+                if (isDeleted =true) {
+                    Toast.makeText(detailOrder.this, "order Deleted", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(detailOrder.this, "order failure created", Toast.LENGTH_LONG).show();
+
+
+        }
         });
     }
 
