@@ -54,6 +54,12 @@ public class  create extends AppCompatActivity {
                         Toast.makeText(create.this, "order created", Toast.LENGTH_LONG).show();
                     } else
                         Toast.makeText(create.this, "order failure created", Toast.LENGTH_LONG).show();
+
+                    etlocation.setText("");
+                    etbuilding.setText("");
+                    etcontact.setText("");
+                    ettel.setText("");
+                    etdescription.setText("");
                 }
             });
     }

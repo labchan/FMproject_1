@@ -71,7 +71,7 @@ public class detailOrder extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                
+
                 boolean isUpdated=Mydb.updateOrder(eId.getText().toString(),
                         eLocation.getText().toString(),
                         eBuilding.getText().toString(),
