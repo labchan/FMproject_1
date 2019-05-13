@@ -1,5 +1,6 @@
 package com.example.fmproject_1;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,9 @@ public class detailOrder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_order);
 
+
+        Mydb =new FMOrderdb(this);
+
         eId=(EditText) findViewById(R.id.e_id);
         eLocation=(EditText) findViewById(R.id.e_location);
         eBuilding=(EditText) findViewById(R.id.e_building);
@@ -31,12 +35,16 @@ public class detailOrder extends AppCompatActivity {
         eTel=(EditText) findViewById(R.id.e_tel);
         eDescription=(EditText) findViewById(R.id.e_description);
         btUpdate=(Button)findViewById(R.id.btn_update);
-        btDel=(Button)findViewById(R.id.btnDel);
+        btDel=(Button)findViewById(R.id.btn_del);
         btHome=(Button)findViewById(R.id.btn_home);
-        
+
+        Home();
+        OrderUpdate();
+        OrderDel();
 
 
         Bundle extras = getIntent().getExtras();
+
         String eid = extras.getString("value");
         String elocation = extras.getString("location");
         String ebuilding = extras.getString("building");
@@ -51,11 +59,53 @@ public class detailOrder extends AppCompatActivity {
         eTel.setText(etel);
         eDescription.setText(edescription);
 
-        // call and run update method for update repair record
-
-
         // see youtube android Studio tutorial-35- using where clause with Sqlitedatabase
 
+    }
+
+    // call and run update method for update repair record
+    public void OrderUpdate()
+    {
+        btUpdate.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                
+                boolean isUpdated=Mydb.updateOrder(eId.getText().toString(),
+                        eLocation.getText().toString(),
+                        eBuilding.getText().toString(),
+                        eContact.getText().toString(),
+                        eTel.getText().toString(),
+                        eDescription.getText().toString());
+
+                if (isUpdated =true) {
+                    Toast.makeText(detailOrder.this, "order updated", Toast.LENGTH_LONG).show();
+                } else
+                    Toast.makeText(detailOrder.this, "order failure created", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+    // call and run update method for update repair record
+    public void OrderDel()
+    {
+        btDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Delete", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // return home page
+    public void Home(){
+        btHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(detailOrder.this, MainActivity.class );
+                startActivity(intent);
+            }
+        });
     }
 }
 
