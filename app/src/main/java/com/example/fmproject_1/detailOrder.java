@@ -105,6 +105,12 @@ public class detailOrder extends AppCompatActivity {
                 } else
                     Toast.makeText(detailOrder.this, "order failure created", Toast.LENGTH_LONG).show();
 
+                eLocation.setText("");
+                eBuilding.setText("");
+                eContact.setText("");
+                eTel.setText("");
+                eDescription.setText("");
+
 
         }
         });
