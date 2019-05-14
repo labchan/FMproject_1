@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnAdd=(Button)findViewById(R.id.btnAdd);
-        btnUpdate=(Button)findViewById(R.id.btnUpdate);
+        //btnUpdate=(Button)findViewById(R.id.btnUpdate);
         btnRead=(Button)findViewById(R.id.btnQuery);
-        btnDel=(Button)findViewById(R.id.btnDel);
+        //btnDel=(Button)findViewById(R.id.btnDel);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
